@@ -1,8 +1,4 @@
 const args = process.argv;
-const {
-    BrowserWindow,
-    session,
-} = require('electron');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
